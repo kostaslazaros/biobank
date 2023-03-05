@@ -1,0 +1,27 @@
+{% extends "main/header.html" %}
+{% block content %}
+    <div class="container">
+        <h1>Dataset List</h1>
+        <table class="table table-striped">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Description</th>
+              <th>Action</th>
+              {% comment %} <th>zipfile</th> {% endcomment %}
+
+            </tr>
+            {% for dset in dataset_list %}
+            <tr>
+
+              <td>{{ dset.title }}</td>
+              <td>{{ dset.author }}</td>
+              <td>{{ dset.description }}</td>
+              <td><a class="btn btn-info btn-sm" href="{% url 'download_file' file_id=dset.id %}" role="button">Download</a></td>
+              {% comment %} <td>{{ dset.zipfile.name }}</td> {% endcomment %}
+
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+{% endblock content %}
