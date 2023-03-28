@@ -1,22 +1,30 @@
 {% extends "main/header.html" %}
+{% load static %}
 {% block content %}
+<script src="{% static 'filter.js' %}"></script>
     <div class="container">
         <h1>Dataset List</h1>
-        <table class="table table-striped">
+        <table class="table table-striped" id="data-table">
+          <thead>
             <tr>
-              <th>Name</th>
-              <th>Disease</th>
-              <th>Modality</th>
-              <th>Description</th>
-              <th>Reference</th>
-              <th>Samples</th>
-              <th>Action</th>
+              <th col-index=1>Name</th>
+              <th col-index=2><select class="table-filter" onchange="filter_rows()">
+                <option value="all"></option>
+            </select>Disease</th>
+              <th col-index=3><select class="table-filter" onchange="filter_rows()">
+                <option value="all"></option>
+            </select>Modality</th>
+              <th col-index=4>Description</th>
+              <th col-index=5>Reference</th>
+              <th col-index=6>Samples</th>
+              <th col-index=7>Action</th>
               {% comment %} <th>zipfile</th> {% endcomment %}
 
             </tr>
+          </thead>
+          <tbody>
             {% for dset in dataset_list %}
             <tr>
-
               <td>{{ dset.title }}</td>
               <td>{{ dset.disease }}</td>
               <td>{{ dset.modality }}</td>
@@ -26,9 +34,10 @@
               <!-- <td><a class="btn btn-info btn-sm" href="{% url 'download_file' file_id=dset.id %}" role="button">Download</a></td> -->
               <td><a class="btn btn-info btn-sm" href="#" role="button">Download</a></td>
               {% comment %} <td>{{ dset.zipfile.name }}</td> {% endcomment %}
-
             </tr>
             {% endfor %}
-          </table>
+          </tbody>
+        </table>
     </div>
+    <script> getUniqueValuesFromColumn()</script>
 {% endblock content %}
