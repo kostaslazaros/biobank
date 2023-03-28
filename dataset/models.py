@@ -28,6 +28,8 @@ class Dataset(models.Model):
     disease = models.ForeignKey(Disease, on_delete=models.PROTECT)
     modality = models.ForeignKey(Modality, on_delete=models.PROTECT)
     description = models.TextField()
+    reference = models.URLField()
+    measurable_index = models.CharField(max_length=100)
     zipfile = models.FileField(upload_to=file_upload_to, max_length=255)
 
     def __str__(self):

@@ -9,7 +9,11 @@ class DatasetCreateForm(forms.ModelForm):
 
         fields = [
             "title",
+            "disease",
+            "modality",
             "description",
+            "reference",
+            "measurable_index",
             "zipfile",
         ]
 
@@ -20,7 +24,11 @@ class DatasetUpdateForm(forms.ModelForm):
 
         fields = [
             "title",
+            "disease",
+            "modality",
             "description",
+            "reference",
+            "measurable_index",
             "zipfile",
         ]
 
@@ -31,6 +39,10 @@ class DatasetFull(forms.ModelForm):
 
         fields = [
             "title",
+            "disease",
+            "modality",
             "description",
+            "reference",
+            "measurable_index",
             "zipfile",
         ]

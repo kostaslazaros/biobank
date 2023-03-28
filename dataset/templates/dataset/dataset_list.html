@@ -8,6 +8,8 @@
               <th>Disease</th>
               <th>Modality</th>
               <th>Description</th>
+              <th>Reference</th>
+              <th>Samples</th>
               <th>Action</th>
               {% comment %} <th>zipfile</th> {% endcomment %}
 
@@ -19,6 +21,8 @@
               <td>{{ dset.disease }}</td>
               <td>{{ dset.modality }}</td>
               <td>{{ dset.description }}</td>
+              <td><a href="{{ dset.reference }}">{{ dset.reference }}</a></td>
+              <td>{{ dset.measurable_index }}</td>
               <!-- <td><a class="btn btn-info btn-sm" href="{% url 'download_file' file_id=dset.id %}" role="button">Download</a></td> -->
               <td><a class="btn btn-info btn-sm" href="#" role="button">Download</a></td>
               {% comment %} <td>{{ dset.zipfile.name }}</td> {% endcomment %}
