@@ -18,7 +18,7 @@ from uuid import uuid4
 # Create your views here.
 
 
-def homepage(request):
+def homepage_old(request):
     matching_series = ArticleSeries.objects.all()
 
     return render(
@@ -30,6 +30,12 @@ def homepage(request):
         }
     )
 
+
+def homepage(request):
+    return render(
+        request=request,
+        template_name='main/intro.html',
+    )
 
 def series(request, series: str):
     matching_series = Article.objects.filter(series__slug=series).all()
