@@ -30,7 +30,7 @@ class Dataset(models.Model):
     description = models.TextField()
     reference = models.URLField()
     measurable_index = models.CharField(max_length=100)
-    zipfile = models.FileField(upload_to=file_upload_to, max_length=255)
+    zipfile = models.FileField(upload_to=file_upload_to, max_length=255, blank=True, null=True)
 
     def __str__(self):
         return f'{self.author}-{self.title}-{self.description} ({self.zipfile})'
