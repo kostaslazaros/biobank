@@ -209,3 +209,7 @@ a.article-title:hover {
 .footer-text a:hover {
   color: #ffffff;
 }
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #d4e1d2;
+}

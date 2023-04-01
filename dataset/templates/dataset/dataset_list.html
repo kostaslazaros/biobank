@@ -4,7 +4,7 @@
 <script src="{% static 'filter.js' %}"></script>
     <div class="container">
         <h1>Dataset List</h1>
-        <table class="table table-striped" id="data-table">
+        <table class="table table-striped table-sm table-hover" id="data-table">
           <thead>
             <tr>
               <th col-index=1>Name</th>
@@ -14,10 +14,10 @@
               <th col-index=3><select class="table-filter" onchange="filter_rows()">
                 <option value="all"></option>
             </select><br>Modality</th>
-              <th col-index=4>Description</th>
-              <th col-index=5>Reference</th>
+              <th col-index=4 class="w-75">Description</th>
               <th col-index=6>Samples</th>
-              <th col-index=7>Action</th>
+              <th col-index=5></th>
+              <th col-index=7></th>
               {% comment %} <th>zipfile</th> {% endcomment %}
 
             </tr>
@@ -29,8 +29,9 @@
               <td>{{ dset.disease }}</td>
               <td>{{ dset.modality }}</td>
               <td>{{ dset.description }}</td>
-              <td><a href="{{ dset.reference }}" target="_blank">{{ dset.reference }}</a></td>
               <td>{{ dset.measurable_index }}</td>
+              <td><a class="btn btn-primary btn-sm" href="{{ dset.reference }}" target="_blank" role="button">Reference</a></td>
+              <!-- <td><a href="{{ dset.reference }}" target="_blank">reference</a></td> -->
               <!-- <td><a class="btn btn-info btn-sm" href="{% url 'download_file' file_id=dset.id %}" role="button">Download</a></td> -->
               <td><a class="btn btn-info btn-sm" href="#" role="button">Download</a></td>
               {% comment %} <td>{{ dset.zipfile.name }}</td> {% endcomment %}
